@@ -101,7 +101,7 @@ const singleMealData = (itemName) => {
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`
     ).then((data) => {
         const singleMealInfo = data.meals[0];
-        const { strMeal, strMealThumb, idMeal } = singleMealInfo;
+        const { strMeal, strMealThumb, idMeal, strYoutube } = singleMealInfo;
         const singleMealDiv = document.getElementById("product-info");
         singleMealDiv.innerHTML = `
  <div class="card m-auto" style="width: 20rem">
@@ -114,6 +114,7 @@ const singleMealData = (itemName) => {
      <p><b>Ingredients</b></p>
      <ul id="ingredient-list"></ul>
    </div>
+   <a href="${strYoutube}" class='text-center text-decoration-none text-white bg-primary mb-2 btn-sm' target="_blank">Youtube Recipe</a>
    <button class='btn btn-primary btn-sm' onclick='addToCart(${idMeal})'>Add to cart</button>
  </div>`;
 
